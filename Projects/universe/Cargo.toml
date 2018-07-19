@@ -1,0 +1,6 @@
+[package]
+name = "universe"
+version = "0.1.0"
+authors = ["YJ <YJ1516268@outlook.com>"]
+
+[dependencies]
