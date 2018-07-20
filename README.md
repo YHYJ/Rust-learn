@@ -42,6 +42,21 @@
   > > 对于包含多个`crate`的项目，让`cargo`来协调构建将会轻松很多
   > >
   > > > `crate`即其他语言中的“库 (library)”或“包 (package)”
+  > >
+  > > 在`Cargo.toml[dependencies]`下写依赖项并指定版本，语法是：
+  > >
+  > > ```toml
+  > > rand = "0.3.0"
+  > > # Cargo理解语义化版本，"0.3.0" 实际上是 ^0.3.0 的简写，代表“任何兼容0.3.0的版本”；rand = "=0.3.0" 精确指定版本号；也可以指定版本范围；
+  > > ```
+  > >
+  > > 更多`Cargo`用法参考
+  > >
+  > > ```shell
+  > > cargo --help
+  > > ```
+  > >
+  > > 和[The Cargo Book](https://doc.rust-lang.org/cargo/)
   >
   > ​	
 
@@ -68,7 +83,7 @@
 * project_name		# 项目名称
   * Cargo.toml	 # `cargo`的配置文件
   * README.md、license信息和其他跟代码无关的文件
-  * src		         # 源文件目录
-    * main.rs	  # 主函数（固定名字）
+    * src	         # 源文件目录
+      * main.rs  # 主函数（固定名字）
     * lib.rs          # 库文件（固定名字）
 
