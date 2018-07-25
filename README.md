@@ -21,9 +21,11 @@
   >
   > ```shell
   > cargo new project_name		# 创建一个新项目
-  > cargo build		# 构建项目
-  > cargo run		# 构建并运行项目
-  > cargo build --release	# 优化编译项目，编译用时长，但生成的程序运行更快
+  > cargo build					# 构建项目
+  > cargo run					# 构建并运行项目
+  > cargo build --release		# 优化编译的项目
+  >
+  > cargo doc --open			# 构建所有本地依赖提供的文档
   > ```
   >
   > 1. `cargo new project_name --bin`使`Cargo`快速创建一个项目骨架
@@ -78,10 +80,17 @@
 
 > `Cargo`期望源文件位于`src`目录
 >
-> 将项目顶级目录（例如`Genesis`）留给 README，license 信息和其他跟代码无关的文件
+> 将项目顶级目录（例如`Projects/Genesis`）留给 README、license 信息和其他跟代码无关的文件
 
-* project_name		# 项目名称
+* project_name		# 项目名称(Genesis)
   * Cargo.toml	 # `cargo`的配置文件
+
+  * Cargo.lock        # 编译后生成，确保构建是可重现的，除非手动升级`crate`
+
+    > 可以使用`cargo update`手动升级，但这样不会跨版本升级，例如：
+    >
+    > 当前使用的`rand`版本是`0.3.12`，现在有两个新版本`0.3.15`和`0.4.0`，`cargo update`只会将`rand`升级到`0.3.15`，只有修改`Cargo.toml`指定`rand = "0.4.0"`才会升级到`0.4.0`
+
   * README.md、license信息和其他跟代码无关的文件
     * src	         # 源文件目录
       * main.rs  # 主函数（固定名字）
