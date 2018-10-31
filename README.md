@@ -25,6 +25,7 @@
   > cargo build					# 构建项目
   > cargo run					# 构建并运行项目
   > cargo build --release		# 优化编译的项目
+  > cargo update				# 升级crate
   > 
   > cargo doc --open			# 构建所有本地依赖提供的文档
   > ```

@@ -4,4 +4,4 @@ version = "0.1.0"
 authors = ["YJ <YJ1516268@outlook.com>"]
 
 [dependencies]
-rand = "0.3.0"      # 随机数包
+rand = "0.5.5"      # 随机数包

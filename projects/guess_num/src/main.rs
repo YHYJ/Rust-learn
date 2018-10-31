@@ -19,7 +19,7 @@ fn main() {
 
         // 获得用户输入
         io::stdin().read_line(&mut guess)   // & 代表参数guess是一个引用以减少拷贝
-            .expect("Failed to read line");
+            .expect("Failed to read line"); // read_line的返回值io::Result，用于错误处理；这里只是接收错误并不处理
 
         // String -> num
         let guess: u32 = match guess.trim().parse() {
@@ -30,13 +30,13 @@ fn main() {
         println!("You guessed: {}", guess);
 
         // 判断随机数和用户输入的大小
-        match guess.cmp(&secret_num) {
+        match &guess.cmp(&secret_num) {
             Ordering::Less      => println!("Too small!"),
             Ordering::Greater   => println!("Too big!"),
             Ordering::Equal     => {
                 println!("You win!");
                 break;      // 猜对后退出；
-            }
+            },
         }
     }
 }
