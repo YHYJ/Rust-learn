@@ -93,7 +93,7 @@ io::stdin().read_line(&mut guess).expect("Failed to read line");
 ## 引用
 
 ```rust
-//  & 表示这个参数是一个 引用(reference) ，它允许多初代码访问同一内存块的数据（减少拷贝）；
+//  & 表示这个参数是一个 引用(reference) ，它允许多处代码访问同一内存块的数据以减少拷贝；
 // 在此引用了 guess 变量；
 // 引用是一个复杂的特性，Rust的一个主要优势就是安全而简单的操作引用；
 // 引用默认不可变，因此需要 mut 使其可变；
@@ -132,12 +132,12 @@ let guess: u32 = match guess.trim().parse() {
 
 ```rust
 //  Result 类型是枚举，通常也写作 enums ；
-// 枚举类型是一个固定值的集合，即枚举的 成员 ；
+// 枚举类型是一个固定值即枚举的成员的集合 ；
 // match 获得 parse() 方法的 io::Result 这个枚举；
 //  Result 枚举的成员是 Ok 或 Err ；
 // Ok 表示操作成功，内部包含代表成功的值；Err 表示操作失败，包含失败的前因后果；
 let guess: u32 = match guess.trim().parse() {
-  Ok(num) => num,     // 解析成功：？num 是什么
+  Ok(num) => num,     // 解析成功
   Err(_) => continue, // 解析失败："_" 代表不管错误类型，continue 使 loop 进行下一次迭代
 };
 

@@ -16,53 +16,46 @@
 
 * cargo
 
+  [The Cargo Book](https://doc.rust-lang.org/cargo/)
+
   > - 构建系统
+  >
+  >   ```shell
+  >   cargo new project_name		# 创建一个新项目(cargo new --help)
+  >   cargo check					# 运行检查代码是否可编译
+  >   cargo build					# 构建项目
+  >   cargo run					# 构建并运行项目
+  >   cargo build --release		# 优化编译的项目
+  >   ```
+  >
+  >   1. `cargo new project_name`使`Cargo`快速创建一个项目骨架
+  >
+  >   2. `cargo build`生成的二进制文件路径是`/project_name/target/debug/``
+  >
+  >   3. 在运行了`cargo build`以后运行`cargo run`并不会重新构建项目，Cargo发现文件并没有改变，所以只是运行了生成的二进制文件；只有在修改了文件后`cargo run`才会重新构建项目并运行
+  >
+  >   4. 对于简单的项目，`cargo`并不比使用`rustc`要好多少，不过在开始使用`crate`时就会显出差异
+  >
+  >      > 对于包含多个`crate`的项目，让`cargo`来协调构建将会轻松很多
+  >      >
+  >      > > `crate`即其他语言中的“库 (library)”或“包 (package)”
+  >      >
+  >      > 在`Cargo.toml[dependencies]`下写依赖项并指定版本，语法是：
+  >      >
+  >      > ```toml
+  >      > rand = "0.3.0"
+  >      > # Cargo理解语义化版本，"0.3.0" 实际上是 ^0.3.0 的简写，代表“任何兼容0.3.0的版本”；rand = "=0.3.0" 精确指定版本号；也可以指定版本范围；
+  >      > ```
+  >      >
+  >      > 
+  >
   > - 包管理工具
   >
-  > ```shell
-  > cargo new project_name		# 创建一个新项目(cargo new --help)
-  > cargo check					# 运行检查代码是否可编译
-  > cargo build					# 构建项目
-  > cargo run					# 构建并运行项目
-  > cargo build --release		# 优化编译的项目
-  > cargo update				# 升级crate
-  > 
-  > cargo doc --open			# 构建所有本地依赖提供的文档
-  > ```
+  >   ```shell
+  >   cargo update				# 升级crate
+  >   cargo doc --open			# 构建所有本地依赖提供的文档
+  >   ```
   >
-  > 1. `cargo new project_name --bin`使`Cargo`快速创建一个项目骨架
-  >
-  >    > `--bin`参数使`Cargo`创建一个可执行程序而非一个库vim C	
-  >
-  > 2. `cargo build`生成的二进制文件路径是`/project_name/target/debug/**``
-  >
-  >    > ``**` 取决于`Cargo.toml[package][name]`
-  >
-  > 3. 在运行了`cargo build`以后运行`cargo run`并不会重新构建项目，Cargo发现文件并没有改变，所以只是运行了生成的二进制文件；只有在修改了文件后`cargo run`才会重新构建项目并运行
-  >
-  >
-  > 4. 对于简单的项目，`cargo`并不比使用`rustc`要好多少，不过在开始使用`crate`时就会显出差异
-  >
-  > > 对于包含多个`crate`的项目，让`cargo`来协调构建将会轻松很多
-  > >
-  > > > `crate`即其他语言中的“库 (library)”或“包 (package)”
-  > >
-  > > 在`Cargo.toml[dependencies]`下写依赖项并指定版本，语法是：
-  > >
-  > > ```toml
-  > > rand = "0.3.0"
-  > > # Cargo理解语义化版本，"0.3.0" 实际上是 ^0.3.0 的简写，代表“任何兼容0.3.0的版本”；rand = "=0.3.0" 精确指定版本号；也可以指定版本范围；
-  > > ```
-  > >
-  > > 更多`Cargo`用法参考
-  > >
-  > > ```shell
-  > > cargo --help
-  > > ```
-  > >
-  > > 和[The Cargo Book](https://doc.rust-lang.org/cargo/)
-  >
-  > ​	
 
 * rustup
 
@@ -88,11 +81,11 @@
 
 * project_name		# 项目名称(Genesis)
 
-  * lib.rc		 # 库文件（固定名字）
+  * lib.rs		 # 库文件（固定名字）
 
   * src                    # 源文件目录
 
-    * main.rc	  # 主函数（固定名字）
+    * main.rs	  # 主函数（固定名字）
 
   		Cargo.toml	 # `cargo`的配置文件
 
